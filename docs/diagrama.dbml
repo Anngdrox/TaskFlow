@@ -1,0 +1,54 @@
+table user{
+  id int [primary key]
+  name varchar(50) [not null]
+  gmail varchar(50) [unique, not null] 
+  pass varchar(72) [not null]
+  tel varchar(15)
+}
+
+table member{
+  id_member int [pk]
+  id_user int [not null, ref: > user.id]
+  rol rols [not null]
+  id_project int [not null, ref: > project.id]
+  
+  indexes {
+    (id_user,id_project) [unique]
+  }
+}
+
+table project{
+  id int [pk]
+  name varchar(50) [not null]
+}
+
+table task{
+  id_task int [pk]
+  title varchar(50) [not null]
+  priority priority_task [not null]
+  date_limit timestamp [not null]
+  id_creator int [not null, ref: > member.id_member]
+  date_creation timestamp [not null, default: `now()`]
+  state task_state [not null]
+  id_assigned int [ref: > member.id_member]
+  description varchar(300)
+  id_project int [not null, ref: > project.id]
+}
+
+enum rols{
+  Admin
+  Member
+}
+
+enum task_state{
+  todo
+  completed
+  inprogress
+}
+
+enum priority_task{
+  urgent
+  high
+  medium
+  low
+}
