@@ -3,7 +3,8 @@
     "description": "API REST de TaskFlow, plataforma de gestión de proyectos",
     "type": "project",
     "require": {
-        "php": ">=8.2"
+        "php": ">=8.2",
+        "vlucas/phpdotenv": "^5.8"
     },
     "autoload": {
         "psr-4": {
