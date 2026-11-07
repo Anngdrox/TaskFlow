@@ -1,0 +1,16 @@
+# Credenciales
+.env
+
+# Dependencias de Composer
+/vendor/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.idea/
+.vscode/
+
+# Logs
+*.log
